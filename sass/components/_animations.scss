@@ -1,0 +1,213 @@
+// base anim for plate fx
+
+@keyframes plate-appear-order {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// delaying appearance
+
+
+[class^="animation__card"] {
+  animation-name: plate-appear-order;
+  animation-duration: 1000ms;
+  animation-fill-mode: backwards;
+}
+
+[class$="card__entries"] {
+  animation-delay: 1s;
+}
+
+[class$="card__main-courses"] {
+  animation-delay: 2s;
+}
+
+[class$="card__desserts"] {
+  animation-delay: 3s;
+}
+
+
+// coeur qui se remplit au hover
+
+
+.empty-heart {
+  color: black;
+  background: none;
+  font-size: 2em;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 500ms ;
+}
+.empty-heart:hover{
+  opacity: 0;
+  
+}
+
+.full-heart {        
+      background: -webkit-gradient(linear, left top, left bottom, from($color-primary), to($color-secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 2;
+      opacity: 0;
+      font-size: 2em; 
+      transition: opacity 500ms ;
+}
+.full-heart:hover{
+  opacity: 1;
+}
+
+
+// loader 
+
+.loader {
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  z-index: 999;
+  animation-name: loader-animation;
+  animation-duration: 3.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;   
+}
+@keyframes loader-animation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    z-index: -1;
+  }
+}
+
+
+[class^="loader__image"] { 
+  height: 120px;
+  width: 120px;
+  background-size: cover;
+  background-repeat:no-repeat;  
+  clip-path: ellipse(50% 50%);
+  opacity: 0;
+  @media (min-width: 768px) {
+    height: 180px;
+    width: 180px;
+  }
+  @media (min-width: 1024px) {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+.loader__image__alafrancaise {
+  position: absolute;
+  right: 20%;
+  top: 5%;
+  animation: fade-in 0.5s ease-in-out 0s forwards; 
+}
+.loader__image__ledelicedessens{
+  position: absolute;
+  left: 20%;
+  top: 25%;
+  animation: fade-in 1s ease-in-out 0.5s forwards; 
+}
+.loader__image__lanoteenchantee{
+  position: absolute;
+  right: 20%;
+  top: 45%;
+  animation: fade-in 1.5s ease-in-out 1s forwards; 
+}
+.loader__image__lapalettedugout  {
+  position: absolute;
+  left: 20%;
+  top: 65%;
+  animation: fade-in 2s ease-in-out 1.5s forwards; 
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+// animation du bouton vert dans les menus
+
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  .btn-check{
+      border: 0;
+      position: absolute;
+      top: 0px;
+      right: -100px;
+      background-color: $color-tertiary;
+      height: 100%;
+      width: 65px;
+      border-radius: 0 15px 15px 0;
+      transition-duration: .55s;
+      
+      .fa-circle-check
+      {
+          color: white;        
+          transition-duration: .60s;
+      }
+  }
+
+  &:hover{
+      
+
+      .btn-check {
+          right: 0;        
+      }
+      .card__body__price {
+          transform: translateX(-60px);
+          transition-delay: 50ms
+      }
+  }
+}
+
+.card {
+  @include card;
+  &__title {        
+      margin-left: 15px;
+      margin-top: -8px; 
+  }
+  &__body {
+      display: flex;
+      justify-content: space-between;
+      margin: -29px 20px 0 15px;
+       &__description {
+          width: 89%;
+          overflow: hidden;
+          text-overflow: ellipsis;/* apparition des ... en cas de menu trop long*/
+          white-space: nowrap; /* empeche le retour à la ligne */            
+      }
+      &__price {
+          transition-duration: 0.60s;
+      }    
+  }
+}

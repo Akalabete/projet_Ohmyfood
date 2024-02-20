@@ -1,0 +1,32 @@
+@mixin generic-menu-restaurants {
+    background: $color-bg-lightbrown;
+    border-radius: $border-radius-restaurants;
+}
+// all h* but h2
+@mixin generic-title-style {
+    font-family: 'Roboto';
+    font-style: normal;
+    color: $color-black;
+}
+
+@mixin bubblestyle {
+    @include boxshadow-restaurants-card;
+    border-radius: 20px; 
+}
+
+
+@mixin main-restaurant-photos {
+    background-color: $color-white;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+@mixin boxshadow-restaurants-card{
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+@mixin card {
+    background-color: $color-white; 
+    height: 70px;
+    margin: 15px 15px 0 15px;
+    border-radius: 15px;
+    @include boxshadow-restaurants-card;
+}

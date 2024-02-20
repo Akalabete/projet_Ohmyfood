@@ -1,0 +1,22 @@
+
+// dans le champ de recherche de la page principale
+.fa-location-dot{
+    padding-right: 10px;
+}
+
+// dans la section howto de la page d'accueil
+
+.fa-mobile, .fa-list-ul{
+    color: $color-fa-icons-grey;
+}
+.fa-store {
+    color: $color-primary;
+}
+
+// fa check des plats au hover
+.fa-circle-check {
+    
+    background-color: $color-tertiary;
+    color: $color-white;
+}
+

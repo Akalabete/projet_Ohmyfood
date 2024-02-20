@@ -1,0 +1,88 @@
+//hooker 
+.main__hooker{
+    text-align: center;
+    background: $color-bg-lightbrown;
+    padding-bottom: 1px; 
+    &__localisation {
+        width: 100%;
+        height: 100%;
+        background-color:$color-search;
+        border-top: solid 2px darken($color-search, 15%);
+        line-height: 40px;
+    }  
+}
+
+//howto
+
+.main__howto {
+    display: block;
+    padding:0 2%;
+    &__container {
+        @media screen and (min-width: 1024px){
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;            
+        }
+    }
+     &__bubble {
+        @media screen and (min-width: 1024px){
+            width: 30%;
+            margin: 0;            
+        }
+        @media screen and (min-width: 768px){
+            
+            margin: auto auto 25px auto;
+        }
+         position: relative;
+         border: none;
+         background: $color-white;
+         @include bubblestyle;
+         height: 72px;
+         width: 90%;
+         max-width: 500px;
+         margin: auto auto 25px auto;
+         padding: 0 0 0 10px;
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items:center;
+         &__icon {
+             width: 20px; 
+             height: 20px;
+             position: absolute;
+             left: -10px;
+             top: 25px;               
+             border-radius: 10px;
+             background-color: $color-primary;
+             color: $color-white;
+             text-align: center;
+         }
+         &__innericon {
+             position: absolute;
+             left: 23px;
+         }
+     }
+ }
+
+
+ @media screen and (min-width: 1024px){
+    .main__restaurants__container, .main__howto{
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    .main__howto h3 {
+        padding-left: 2%;
+    }
+}
+
+
+// comportement du passage à la ligne en version grand écran  
+  @media screen and (min-width: 768px) {
+    .seizure {
+      display: block;
+    }
+  
+    .seizure br {
+      display: none;
+    }
+  }

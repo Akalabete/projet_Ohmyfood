@@ -1,0 +1,57 @@
+
+.menu__selection {
+    padding-top: 150px;
+    
+    >*{
+        @include generic-menu-restaurants;
+        
+    }   
+}
+.menu__title {
+    margin: 0 0 24px 15px;
+    padding-top: 25px;
+}
+
+.menu__selection__title {
+    margin: 18px 0 18px 5px;
+}
+
+
+
+
+.menu__selection__container {
+    padding-bottom: 1px; // sinon bouton collé en bas ??
+    max-width: 1220px;
+    margin: 50px auto auto auto;
+}
+.menu-title {
+    display: flex;
+    flex-direction: row;
+    @media screen and (min-width: 1024px){
+        text-align: center;
+        justify-content: center;
+    }
+}
+.menu-title .favourite-container i {
+    top: 30px;
+}
+.main__restaurants__card{
+    position: relative;
+}
+
+@media screen and (min-width: 1024px) {
+.menu__selection__container >* {
+    max-width: 50%;
+    margin: auto;
+    }
+}
+
+
+// petite barre en dessous des rubriques des menus
+
+.barre { 
+    width:40px;
+    margin: -13px 0 0 5px;
+
+    border: solid 2px $color-tertiary;
+}
